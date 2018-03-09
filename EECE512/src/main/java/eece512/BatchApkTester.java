@@ -147,7 +147,7 @@ public class BatchApkTester {
 		// Run ApkDecoder
 		ApkDecoder.main(apkDecoderInputs.toArray(new String[apkDecoderInputs.size()]));
 		// Find EditText for password inputs
-		return ApkDecoder.findPasswordIds(apkPath.replaceAll("\\.apk", "") + "\\res");
+		return ApkDecoder.findPasswordIds(apkPath.replaceAll("\\.apk", "") + "//res");
 	}
 	
 	public static void flowDroid(String apkPath, String sdkPath, String[] passwordIds) throws Exception {
@@ -162,7 +162,7 @@ public class BatchApkTester {
 		flowDroidInputs.add(String.valueOf(APLENGTH));
 		
 		// Find and feed digital ID into ResultsHanlder
-		HashMap<Integer, String> digitalIds = ApkDecoder.findDigitalIds(apkPath.replaceAll("\\.apk", "") + "\\soot", passwordIds);
+		HashMap<Integer, String> digitalIds = ApkDecoder.findDigitalIds(apkPath.replaceAll("\\.apk", "") + "//soot", passwordIds);
 		ResultsHandler.feedPasswordIds(digitalIds);
 		
 		// First round: from sources to encryptions
@@ -207,7 +207,7 @@ public class BatchApkTester {
 		for(File f: dir.listFiles()){
 			if (f.isDirectory()) {
 				return detectObfuscationInSmali(f);
-			} else if (f.getAbsolutePath().contains("\\a.smali")) {
+			} else if (f.getAbsolutePath().contains("//a.smali")) {
 				return true;
 			}
 	    }

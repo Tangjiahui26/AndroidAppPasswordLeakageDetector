@@ -151,7 +151,7 @@ public class ApkDecoder {
 		// Options for Soot
 		Options.v().set_src_prec(Options.src_prec_apk); // Target to input APK
 		Options.v().set_output_format(Options.output_format_jimple); // Output jimple
-		Options.v().set_output_dir(apkPath.replaceAll("\\.apk","") + "\\soot");
+		Options.v().set_output_dir(apkPath.replaceAll("\\.apk","") + "//soot");
 		Options.v().set_process_multiple_dex(true);
 
 		// Entry point for Soot
